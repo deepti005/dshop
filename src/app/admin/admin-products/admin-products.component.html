@@ -1,0 +1,97 @@
+<!-- <div style= "margin-top: 30px;">
+    <button class="btn btn-primary">Add Product</button>
+
+</div> -->
+<table class="table caption-top" style="margin-top: 60px; ">
+  <caption><button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#productModal"
+      (click)="addProduct()">Add Product</button></caption>
+</table>
+<table class="table" style="margin-top: 10px; font-weight: bold;">
+  <thead class="table-dark">
+    <tr>
+      <th></th>
+      <th>Prouduct Name</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products ; let i= index">
+      <td>
+        <img src="{{product.imageUrl}}" style="width: 30px; height : 30px">
+      </td>
+      <td>
+        <form>
+          <input type="text" class="form-control" id="text" name="productname" *ngIf="product.editable"
+            [(ngModel)]="product.productName">
+          <ng-container *ngIf="!product.editable">{{product.productName}}</ng-container>
+        </form>
+      </td>
+      <td>
+        <form>
+          <input type="text" class="form-control" id="text" name="price" *ngIf="product.editable"
+            [(ngModel)]="product.price">
+          <ng-container *ngIf="!product.editable">{{product.price|currency:"INR":"symbol"}}</ng-container>
+        </form>
+      </td>
+      <td><span class="click">
+          <a *ngIf="!product.show" (click)="makeEditable(i)">Edit | </a>
+          <a *ngIf="!product.show" (click)="deleteData(i)">Delete</a>
+          <a *ngIf="product.show">Save |</a>
+          <a *ngIf="product.show" (click)="cancel(i)">Cancel</a>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="modal" id="productModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row justify-content-md-center">
+            <div class="card">
+              <div class="card-body">
+                <form [formGroup]="productForm">
+                  <div class="form-group">
+                    <select class="form-select" formControlName="category" aria-label="Default select example">
+                      <option selected>select category</option>
+                      <option *ngFor="let category of categories" value={{category}}
+                        [(ngModel)]="product.productCategory">{{category}}</option>
+                    </select>
+                    <br>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" formControlName="productname" class="form-control"
+                      [(ngModel)]="product.productName" placeholder="Product Name">
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input type="text" formControlName="productprice" class="form-control" [(ngModel)]="product.price"
+                      placeholder="price"> 
+                  </div> <br>
+                  <div class="form-group">
+                    <div class="mb-3">
+                      <input type="text" formControlName="productimage" class="form-control"
+                        [(ngModel)]="product.imageUrl" placeholder="Image">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary" (click)=addProduct()>Save</button>
+      </div>
+    </div>
+   
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:rgba(144, 238, 144, 0.589)">
+    <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i style= "margin-left: 20px;color:green"class="fa fa-bars" aria-hidden="true" ></i></a> 
+    <a class="navbar-brand" routerLink="/" style="margin-left:20px;color:green"><i class="fa fa-leaf"></i></a><span><h5>Dshop</h5></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">        
+        <li class="nav-item">
+          <a class="nav-link" routerLink= "/shopping-cart"
+          ><i class="fa fa-shopping-cart"></i>&nbsp;  
+          <span class="badge rounded-pill bg-warning text-dark">{{quantity}}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-success click button-pill" type= "button" *ngIf="!isloggedin" routerLink="/login">Login</button>
+        </li>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline" id="dropdownBasic1" ngbDropdownToggle>Welcome
+            <span *ngIf="isloggedin">{{username}}</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a ngbDropdownItem routerLink="/my/orders">My Orders</a>
+              <a ngbDropdownItem routerLink="/admin/orders">Manage Orders</a>
+              <a ngbDropdownItem routerLink="/admin/products">Manage Products</a>
+              <a class= "click" ngbDropdownItem >Log Out</a>
+          </div>
+        </div>         
+      </ul>    
+    </div> 
+  </nav>
+  <!-- <div class="modal" tabindex="-1" id= "loginModal" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" data-target="#loginModal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <div class="row justify-content-md-center">
+                <div class="card">                   
+                    <div class="card-body">
+                      <app-login></app-login>
+                      <form [formGroup]="loginForm">
+                        <div class="form-group">
+                          <input type="text" formControlName="username" class="form-control" [(ngModel)]="username"
+                            placeholder="Enter Username">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <input type="password" formControlName="password" class="form-control" [(ngModel)]="password"
+                            placeholder="Enter Password">
+                        </div>       
+                        
+                      </form> 
+                     </div> 
+                </div>
+            </div>    
+          
+        </div>
+        <div class="modal-footer">
+          <div>
+            <button class="btn btn-success" (click)="login()">Login</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" data-bs-dismiss="modal" data-target="#loginModal" aria-label="Close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<!-- offcanvas -->
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header"  style="background-color:lightgreen">
+    <div>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color:white">Hello Deepti</h5>
+      </div>                 
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row" style="background-color:lightgreen;padding-bottom: 5px;padding-left: 10px;padding-right: 10px;">
+      <div class="col-6"><button type= "button" class= "btn btn-outline-light canvas-btn">Account</button>      
+      </div>
+      <div class="col-6"> <button type= "button" class= "btn btn-outline-light canvas-btn">Orders</button>    
+      </div>
+    </div> 
+    <div>
+      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+  

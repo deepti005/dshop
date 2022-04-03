@@ -1,0 +1,6 @@
+.click{
+    cursor: pointer;
+}
+.modal-backdrop {
+    background-color: transparent !important;
+}

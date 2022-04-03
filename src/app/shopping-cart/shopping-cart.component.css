@@ -1,0 +1,16 @@
+.click{
+    cursor: pointer;
+}
+.customcheck {
+    background-color: green;
+    border: 1px solid #ccc;
+    border-radius: 50%;    
+    height: 22px;
+    width: 22px;
+    /* left: 0; */
+    /* position: absolute; */
+    /* top: 0; */
+}
+.customcheck::after {
+    background-color: gray;
+}

@@ -1,0 +1,84 @@
+<!-- <div 
+[ngStyle]= "{backgroundImage:'url(./assets/imgs/cart-1.png)'}" 
+style= "position: relative; background-size: cover; height: 39rem; background-repeat: no-repeat;
+background-size: 60% ;background-position: center;">
+</div> -->
+<div class="container" style= "margin-top: 7rem; width: 100%;">
+    <div class="row">
+        <div class="col">
+            <div class="card md-3">
+                <div class="card-header" style= "font-weight: bold;">
+                    <div class="row">
+                        <div class="col-9">
+                            <h5>Groceries Basket</h5>                            
+                        </div>
+                        <div class="col-3" style= "margin-top: 4px;"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class= "list-group">                        
+                        <li class="list-group-item" *ngFor= "let order of myOrders" style= "line-height: 6rem;">
+                            <div class="row">                                  
+                                  <!-- <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Checked checkbox
+                                    </label>
+                                  </div> -->
+                                 
+                                <div class="col-2">                                        
+                                    <img src="{{order.imageUrl}}" style="width: 40px; height : 40px">
+                                </div>
+                                <div class="col-3" style="margin-top:37px"><h6>{{order.productName}}</h6></div>
+                                <div class="col-3">{{order.price|currency:"INR":"symbol"}}</div>
+                                <div class="col-3">Qty: {{order.quantity}}</div>                         
+                                
+                            </div>
+                        </li>
+                    </ul>                    
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Payment Details</h5>
+                </div>
+                <div class="card-body">
+                    <ul class= "list-group" style= "font-weight: bold; line-height: 5rem;">
+                        <li class= "list-group-item">Mrp Total
+                            <span style= "float: right;">{{myOrderAmount|currency:"INR":"symbol"}}</span>                                                     
+                        </li>
+                        <li class= "list-group-item">Total Amount 
+                            <span style= "float: right;">{{myOrderAmount|currency:"INR":"symbol"}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class= "btn btn-primary" data-bs-toggle= "modal" data-bs-target= "#successModal" style= "float: right" (click)= "makePayment()">Make Payment</div>
+</div>
+
+<div class="modal" id="successModal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Order Placed</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row justify-content-md-center">
+                    <div class="card">           
+                        <div class="card-body">
+                            <h5>Your order placed successfully!!</h5>                    
+                        </div>
+                      </div>
+                </div>                
+              </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+

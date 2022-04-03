@@ -1,0 +1,7 @@
+<bs-navbar *ngIf= 'isLogin' [name]='username'></bs-navbar>
+<app-login *ngIf= '!isLogin'(loginResponse)= "getLoginStatus($event)"></app-login>
+
+
+<div class= "container">
+<router-outlet></router-outlet>
+</div>

@@ -1,0 +1,32 @@
+
+          <div class="row justify-content-lg-center" style="margin-top:80px">
+            <div class="col-6">
+              <div class="card"> 
+                <div class="card-header" style="background:lightgreen">
+                  <h4>Login</h4>
+                </div>                  
+                <div class="card-body">
+                  <form [formGroup]="loginForm">
+                    <div class="form-group">
+                      <input type="text" formControlName="username" class="form-control" [(ngModel)]="username"
+                        placeholder="Enter Username">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <input type="password" formControlName="password" class="form-control" [(ngModel)]="password"
+                        placeholder="Enter Password">
+                    </div>                           
+                  </form> 
+                 </div> 
+                 <div class="card-footer">
+                  <div>
+                    <button class="btn btn-success" (click)="login()">Login</button>
+                  </div>
+                </div>
+            </div>
+            </div>              
+          </div>            
+      
+      
+   
+

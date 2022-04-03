@@ -1,0 +1,23 @@
+.click{
+    cursor: pointer;
+}
+.offcanvas-body {
+    flex-grow: 1;
+    padding: 0rem;
+    overflow-y: auto;
+}
+.canvas-btn {
+    width: 100%;
+    font-weight: 600;
+    border: 2px solid white;
+}
+.button-pill {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px; 
+    height: 30px;
+    margin-top: 5px;
+    padding-top:1px;   
+}
+

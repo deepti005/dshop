@@ -1,0 +1,45 @@
+<div class="container-fluid" style= "margin-top: 60px">
+    <div class= "row">    
+            <input class="form-control me-2" type="search" (input)="search($event.target.value)" name= "searchproduct" placeholder="What would you like to buy today?" [(ngModel)]= "searchProduct" aria-label="Search">   
+    
+    </div> 
+</div>
+     
+<div class="row" style= "margin-top: 50px;">
+    <div class="col-3">             
+                <ul class= "list-group">                    
+                        <!-- <li class="list-group-item active" aria-current= "true" style="background-color:green" (click)= "allCategory()"> -->
+                            <!-- All Categories</li> -->
+                        <a class="list-group-item"  *ngFor= "let category of categories | keyvalue"
+                         routerLink = "/" [queryParams]="{category: category.value}">{{category.key}}
+                    
+                    </a>                                                                     
+                </ul>            
+    </div>
+    <div class="col-9 click">
+        <div class="row">
+            <ng-container *ngFor= "let product of filteredProducts; let productIndex= index">
+                <div class="card col-5" style= "margin-right: 10px;margin-bottom: 10px;" (click)="productInformation()">
+                    <img src= "{{product.imageUrl}}" class="card-img-top" style= "height: 200px;">        
+                    <div class="card-body"> 
+                        <br>             
+                        <h5>
+                            {{product.productName}}
+                        </h5>                        
+                        <h5 style= "opacity: 0.7;">{{product.price|currency:"INR":"symbol"}}</h5>                
+                        <div class="row">
+                            <button class="btn btn-secondary" *ngIf= "!product.isAddedtocart" (click)= "addtocart(productIndex)">
+                                Add to Cart
+                            </button>                            
+                        </div>
+                        <div class="input-group mb-3" *ngIf= "product.isAddedtocart">
+                            <span class="input-group-text" (click)= decreaseCount(productIndex)>-</span>
+                            <input type="text" class="form-control" placeholder="{{product.quantity}}" aria-label="Amount (to the nearest dollar)">
+                            <span class="input-group-text" (click)= increaseCount(productIndex)>+</span>
+                          </div>                        
+                    </div>
+                </div>
+            </ng-container>            
+        </div>        
+    </div>
+</div>
