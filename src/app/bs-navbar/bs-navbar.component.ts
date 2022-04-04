@@ -15,24 +15,28 @@ import { SharedcartService } from '../services/sharedcart.service';
 export class BsNavbarComponent implements OnInit {
  
   searchProduct : any;
-  loginDetails: any;
-  isloggedin: boolean;
+  // loginDetails: any;
+  // isloggedin: boolean;
   quantity:number=0;
+  name: string= '';
 
   ngOnInit(): void {} 
 
-  username : string;
-  password : string;
-  loginForm : FormGroup;  
-  products: any [];
+  // username : string;
+  // password : string;
+  // loginForm : FormGroup;  
+  // products: any [];
 
   constructor(private mockUrlService: MockyUrlsService,
     private sharedCartService:SharedcartService,
     private route: ActivatedRoute,
     private router: Router) {
-    this.username = sessionStorage.getItem('name');
     this.sharedCartService.cartSource.subscribe((value)=>{
-      this.quantity= value;
-    })    
+      this.quantity= value;    
+    });
+    this.sharedCartService.nameSource.subscribe((n)=>{
+      this.name = n;
+      console.log('bsname',this.name)
+    });    
     }   
 }
